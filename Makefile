@@ -1,5 +1,8 @@
-main: main.o
+grooveboy.gba: main.c
 	gcc -o $@ $<
 
-main.o:
-	gcc -o main.o -c main.c
+bin:
+	echo
+
+clean:
+	rm -rf *.exe *.gba
