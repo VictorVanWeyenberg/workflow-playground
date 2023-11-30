@@ -1,8 +1,8 @@
 name: Build GBA artifact
 on: [push]
 jobs:
-  Build-Docker-Image:
-    name: Build Docker Image
+  Build-Artifact:
+    name: Build Artifact
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -11,12 +11,3 @@ jobs:
         run: docker build -t devkitwb .
       - name: Run Docker Image
         run: docker run --mount type=bind,source=./,target=/grooveboy devkitwb
-      - name: debug
-        run: ls
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: GBA
-          path: grooveboy.gba
-
-
